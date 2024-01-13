@@ -1,0 +1,20 @@
+$ff-heading: "Poppins", sans-serif;
+$ff-body: "Open Sans", sans-serif;
+
+$primary: hsl(322, 100%, 66%);
+
+$neutral-100: hsl(193, 100%, 96%);
+$neutral-200: hsl(208, 11%, 55%);
+$neutral-300: hsl(192, 100%, 9%);
+
+:root {
+  --ff-heading: "Poppins", sans-serif;
+  --ff-body: "Open Sans", sans-serif;
+
+  --primary: hsl(322, 100%, 66%);
+
+  --neutral-100: hsl(193, 100%, 96%);
+  --neutral-150: hsl(200, 2%, 75%);
+  --neutral-200: hsl(208, 11%, 55%);
+  --neutral-300: hsl(192, 100%, 9%);
+}
