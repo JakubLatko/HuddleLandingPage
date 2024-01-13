@@ -1,15 +1,35 @@
+---
 
-Grow Together
+interface Props {
+    title:string,
+    text:string
+}
+const {title, text} = Astro.props
+---
 
-Generate meaningful discussions with your audience and build a strong, loyal community. 
-Think of the insightful conversations you miss out on with a feedback form. 
+<div>
+    <slot></slot>
+    <h2>{title}</h2>
+    <p>{text}</p>
+</div>
 
-Flowing Conversations
 
-You wouldn't paginate a conversation in real life, so why do it online? Our threads 
-have just-in-time loading for a more natural flow.
+ 
+<style lang="scss">
+    div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+    }
+    h2{
+        font-family: var(--ff-heading);
+        margin-block: 3rem 1rem;
+        font-size: clamp(.25rem, 6vw, 1.75rem);
+    }
+    p{
+        color: var(--neutral-200);
+        font-size: clamp(.75rem, 4vw, 1.75rem);
+    }
 
-Your Users
-
-It takes no time at all to integrate Huddle with your app's authentication solution. 
-This means, once signed in to your app, your users can start chatting immediately.
+</style>
