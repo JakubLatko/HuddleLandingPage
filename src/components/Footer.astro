@@ -1,42 +1,170 @@
+---
+import { Image } from "astro:assets";
+import logo from "../images/logo-white.svg";
+import location from "../images/icon-location.svg";
+import phone from "../images/icon-phone.svg";
+import mail from "../images/icon-email.svg";
+---
+
 <footer>
-    <div>
-        <h2>Ready To Build Your Community?</h2>
-        <button>
-            Get Started For Free
-        </button>
+  <div class="CTA">
+    <h2>Ready To Build Your Community?</h2>
+    <button> Get Started For Free</button>
+  </div>
+  <div class="footer__bottom">
+    <div class="logo">
+      <Image src={logo} alt={"Our logo"} />
+      <!-- <h2>HUDDLE</h2> -->
     </div>
-    <div>
-        <img src="" alt="">
-        <div>
-            <div>
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua</p>
-            </div>
-            <div>
-                <img src="" alt="">
-                <p>+1-543-123-4567</p>
-            </div>
-            <div>
-                <img src="" alt="">
-                <p>example@huddle.com</p>
-            </div>
-        </div>
-        <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">What We Do</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-        <div>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <p>
-                &copy; Copyright 2018 Huddle. All rights reserved.
-            </p>
-        </div>
+    <div class="companyInfoWrapper">
+      <div class="location">
+        <Image src={location} alt={""} />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </p>
+      </div>
+      <div class="phone">
+        <Image src={phone} alt={""} />
+        <p>+1-543-123-4567</p>
+      </div>
+      <div class="mail">
+        <Image src={mail} alt={""} />
+        <p>example@huddle.com</p>
+      </div>
     </div>
+    <nav class="bottomNav">
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="socialMedia">
+      <div>
+        <Image src={location} alt={""} />
+        <Image src={phone} alt={""} />
+        <Image src={mail} alt={""} />
+      </div>
+      <p>&copy; Copyright 2018 Huddle. All rights reserved.</p>
+    </div>
+  </div>
+
+  <style lang="scss">
+    footer {
+      padding-inline: 5vw;
+      background-color: var(--neutral-300);
+      margin-top: 10rem;
+      color: var(--neutral-100);
+      padding-bottom: 3rem;
+    }
+    .footer__bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .CTA {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 15px;
+      background-color: var(--neutral-100);
+      box-shadow: 0px -2.5px 5px 0px var(--neutral-150);
+      transform: translateY(-5rem);
+      h2 {
+        color: var(--neutral-300);
+      }
+      button {
+        background-color: var(--primary);
+        border-radius: 100vw;
+        padding: 0.5em 2em;
+        border: 0;
+        color: var(--neutral-100);
+        width: fit-content;
+        margin-inline: auto;
+      }
+    }
+    .logo {
+      // display: flex;
+      // //--icon-size: 30vw;
+      // img {
+      //   object-fit: contain;
+      //   max-width: 10rem;
+      //   //aspect-ratio: 1;
+      //   // width: var(--icon-size);
+      //   // height: var(--icon-size);
+      // }
+    }
+    .companyInfoWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .location,
+      .phone,
+      .mail {
+        --icon-size: 1.5rem;
+        img {
+          object-fit: contain;
+          aspect-ratio: 1;
+          width: var(--icon-size);
+          height: var(--icon-size);
+        }
+
+        display: flex;
+        gap: 1rem;
+      }
+    }
+    .bottomNav {
+      margin-block: 2rem;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        li {
+          a {
+            color: var(--neutral-100);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .socialMedia {
+      display: flex;
+      flex-direction: column;
+      div {
+        width: 50%;
+        margin-inline: auto;
+        display: flex;
+        justify-content: space-around;
+      }
+      p {
+        font-size: clamp(0.5rem, 3vw, 2rem);
+        margin-inline: auto;
+        margin-top: 1rem;
+      }
+    }
+    @media only screen and (min-width: 1440px) {
+      .CTA {
+        width: 50%;
+        margin-inline: auto;
+        padding: 3rem 5rem;
+        gap: 2rem;
+        h2 {
+          font-size: clamp(1rem, 3vw, 2rem);
+        }
+        button {
+          font-size: clamp(0.75rem, 1.5vw, 2rem);
+        }
+      }
+    }
+  </style>
 </footer>

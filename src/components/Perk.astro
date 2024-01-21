@@ -1,35 +1,75 @@
 ---
-
 interface Props {
-    title:string,
-    text:string
+  title: string;
+  text: string;
+  inversed: boolean;
 }
-const {title, text} = Astro.props
+
+const { title, text, inversed } = Astro.props;
 ---
 
-<div>
-    <slot></slot>
+<div class:list={["perk", { inversed }]} class="perk">
+  <slot />
+  <div class="perkWrapper">
     <h2>{title}</h2>
     <p>{text}</p>
+  </div>
 </div>
 
-
- 
 <style lang="scss">
-    div{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        
-    }
-    h2{
-        font-family: var(--ff-heading);
-        margin-block: 3rem 1rem;
-        font-size: clamp(.25rem, 6vw, 1.75rem);
-    }
-    p{
-        color: var(--neutral-200);
-        font-size: clamp(.75rem, 4vw, 1.75rem);
-    }
+  .perk {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0px 0px 30px 0px var(--neutral-150);
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  h2 {
+    font-family: var(--ff-heading);
+    margin-block: 3rem 1rem;
+    font-size: clamp(0.25rem, 6vw, 1.75rem);
+  }
+  p {
+    color: var(--neutral-200);
+    font-size: clamp(0.75rem, 3.5vw, 1.75rem);
+  }
+  @media only screen and (min-width: 1440px) {
+    .perk {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-basis: 50%;
 
+      gap: 3rem;
+      padding: 3rem;
+    }
+    .perkWrapper {
+      width: 50%;
+      margin-block: auto;
+      text-align: left;
+      h2 {
+        font-size: clamp(1rem, 2.5vw, 2.5rem);
+      }
+      p {
+        font-size: clamp(1rem, 1.25vw, 2.5rem);
+        max-width: 40ch;
+      }
+    }
+    .perk.inversed {
+      flex-direction: row;
+      .perkWrapper {
+        margin-block: auto;
+        text-align: left;
+        h2,
+        p {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        slot {
+          grid-column: 2;
+          grid-row: 1;
+        }
+      }
+    }
+  }
 </style>

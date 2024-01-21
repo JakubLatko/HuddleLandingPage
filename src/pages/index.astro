@@ -1,117 +1,148 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Perk from "../components/Perk.astro"
-import { Image } from 'astro:assets';
-import heroImage from '../images/illustration-mockups.svg'
-import growImage from '../images/illustration-grow-together.svg'
-import flowingImage from '../images/illustration-flowing-conversation.svg'
-import usersImage from '../images/illustration-your-users.svg'
-import json from '../perks.json'
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Perk from "../components/Perk.astro";
+import { Image } from "astro:assets";
+import heroImage from "../images/illustration-mockups.svg";
+import growImage from "../images/illustration-grow-together.svg";
+import flowingImage from "../images/illustration-flowing-conversation.svg";
+import usersImage from "../images/illustration-your-users.svg";
+import json from "../perks.json";
 //import heroImageDesktop from '../images/bg-hero-desktop.svg'
 ---
 
 <Layout title="Huddle">
-	<main>
-		<section class="hero">
-			<div class="hero__content">
-				<h1> Build The Community Your Fans Will Love</h1>
-				<p>Huddle re-imagines the way we build communities. You have a voice, but so does your audience. 
-				  Create connections with your users as you engage in genuine discussion.</p>
-				<button>
-					Get Started For Free
-				</button>
-			</div>
-			<div class="hero__image">
-				<Image src={heroImage} alt=""/>
-				
-			</div>
-			<section class="perks">
-				<Perk title={json[0].title} text={json[0].text}><Image src={growImage} alt=""/></Perk>
-				<Perk title={json[1].title} text={json[1].text}><Image src={flowingImage} alt=""/></Perk>
-				<Perk title={json[2].title} text={json[2].text}><Image src={usersImage} alt=""/></Perk>
-			</section>
-		</section>
-	</main>
-		
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Build The Community Your Fans Will Love</h1>
+        <p>
+          Huddle re-imagines the way we build communities. You have a voice, but
+          so does your audience. Create connections with your users as you
+          engage in genuine discussion.
+        </p>
+        <button> Get Started For Free</button>
+      </div>
+      <div class="hero__image">
+        <Image src={heroImage} alt="" />
+      </div>
+    </section>
+    <section class="perks">
+      <Perk title={json[0].title} text={json[0].text} inversed={false}>
+        <Image src={growImage} alt="" />
+      </Perk>
+      <Perk title={json[1].title} text={json[1].text} inversed={true}>
+        <Image src={flowingImage} alt="" />
+      </Perk>
+      <Perk title={json[2].title} text={json[2].text} inversed={false}>
+        <Image src={usersImage} alt="" />
+      </Perk>
+    </section>
+  </main>
 </Layout>
 
 <style lang="scss">
-	 @use '../scss/_variables.scss' as *;
-	body{
-		font-family: $ff-body;
-		font-weight:300;
-		display:flex;
-		flex-direction:column;
-		background-color:$neutral-100;
-		
-		
-	}
-	main{
-		margin-inline: 5vw;
-	}
-	.desktopOnly{
-			display: none;
-	}
-	.mobileOnly{
-			display: block;
-	}
-	.hero{
-		margin-top: 30vw;
-		display: flex;
-		flex-direction: column;
-		&__content{
-			display: flex;
-			flex-direction: column;
-			gap: 2rem;
-			text-align: center;
-			justify-content: center;
-			align-items:center;
-			h1{
-				font-family: var(--ff-heading);
-				font-weight: 700;
-				font-size: clamp(1rem, 8vw, 3rem);
-			}
-			p{
-				max-width: 35ch;
-				margin-inline: auto;
-			}
-			button{
-				width: fit-content;
-				color: var(--neutral-100);
-				background-color: var(--primary);
-				border-radius: 100vw;
-				border: 0;
-				padding: .5em 2em;
-				font-size: clamp(1rem, 3vw, 2rem);
-				
-			}
-		}
-		&__image{
-			img{
-				object-fit: contain;
-				height: fit-content;
-				width: fit-content;
-				margin-block: 3rem;
-			}
-		}
-	}
-	.perks{
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		margin-inline: 5vw;
-		img{
-			object-fit: contain;
-			height: fit-content;
-		}
-	}
-	@media only scren and (min-width:1440px){
-		.desktopOnly{
-			display: block;
-		}
-		.mobileOnly{
-			display: none;
-		}
-	}
+  @use "../scss/_variables.scss" as *;
+  body {
+    font-family: $ff-body;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    background-color: $neutral-100;
+  }
+  main,
+  footer {
+    margin-inline: 5vw;
+  }
+  .desktopOnly {
+    display: none;
+  }
+  .mobileOnly {
+    display: block;
+  }
+  .hero {
+    margin-top: 30vw;
+    display: flex;
+    flex-direction: column;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: var(--ff-heading);
+        font-weight: 700;
+        font-size: clamp(1rem, 8vw, 3rem);
+      }
+      p {
+        max-width: 35ch;
+        margin-inline: auto;
+      }
+      button {
+        width: fit-content;
+        color: var(--neutral-100);
+        background-color: var(--primary);
+        border-radius: 100vw;
+        border: 0;
+        padding: 0.5em 2em;
+        font-size: clamp(1rem, 3vw, 2rem);
+      }
+    }
+    &__image {
+      img {
+        object-fit: contain;
+        height: fit-content;
+        width: fit-content;
+        margin-block: 3rem;
+      }
+    }
+  }
+  .perks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-inline: 5vw;
+
+    img {
+      width: 45%;
+      object-fit: contain;
+      height: fit-content;
+    }
+  }
+
+  @media only scren and (min-width: 1440px) {
+    .desktopOnly {
+      display: block;
+    }
+    .mobileOnly {
+      display: none;
+    }
+  }
+  .perks {
+    margin: 0;
+  }
+  .hero {
+    display: flex;
+    flex-direction: row;
+    margin-block: 2rem 4rem;
+    gap: 3rem;
+    &__content {
+      align-items: start;
+      text-align: left;
+      gap: 2rem;
+      h1 {
+        line-height: 130%;
+      }
+      p {
+        margin: initial;
+        font-size: clamp(1rem, 1.5vw, 2rem);
+        max-width: 50ch;
+      }
+      button {
+        font-size: clamp(1rem, 1.5vw, 2rem);
+      }
+    }
+  }
 </style>
