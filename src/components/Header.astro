@@ -41,23 +41,49 @@ import logo from "../images/logo.svg";
     border: 0;
     font-size: clamp(0.5rem, 3vw, 1.5rem);
     background-color: transparent;
+    &:hover {
+      background-color: var(--neutral-50);
+      cursor: pointer;
+      transition: 300ms ease-in-out;
+    }
   }
 
-  @media only screen and (min-width: 550px) {
+  @media only screen and (min-width: 550px) and (max-width: 767px) {
     header {
       padding-block: 2rem;
     }
   }
 
-  @media only screen and (min-width: 1440px) {
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+      padding-block: 2rem;
+      button {
+        font-size: clamp(0.5rem, 2.5vw, 1.25rem);
+      }
+    }
+  }
+
+  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
     header {
       padding-block: 3rem;
+      button {
+        font-size: clamp(0.5rem, 2.5vw, 1.25rem);
+      }
+    }
+  }
+  @media only screen and (min-width: 1440px) and (max-width: 1919px) {
+    header {
+      padding-block: 3rem;
+      button {
+        font-size: clamp(0.5rem, 2.5vw, 1.25rem);
+      }
     }
   }
 
   @media only screen and (min-width: 1920px) {
     header {
       padding-inline: 10vw;
+      padding-block: 3rem;
     }
     button {
       font-size: clamp(0.5rem, 1vw, 1.5rem);
