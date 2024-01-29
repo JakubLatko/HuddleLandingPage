@@ -15,8 +15,9 @@ import logo from "../images/logo.svg";
 <style lang="scss">
   @use "../scss/_variables.scss" as *;
   header {
-    margin-inline: 5vw;
+    padding-inline: 5vw;
     padding-block: 1rem;
+    background-color: var(--neutral-100);
   }
   nav {
     display: flex;
@@ -41,9 +42,25 @@ import logo from "../images/logo.svg";
     font-size: clamp(0.5rem, 3vw, 1.5rem);
     background-color: transparent;
   }
+
+  @media only screen and (min-width: 550px) {
+    header {
+      padding-block: 2rem;
+    }
+  }
+
   @media only screen and (min-width: 1440px) {
     header {
-      margin-block: 3rem;
+      padding-block: 3rem;
+    }
+  }
+
+  @media only screen and (min-width: 1920px) {
+    header {
+      padding-inline: 10vw;
+    }
+    button {
+      font-size: clamp(0.5rem, 1vw, 1.5rem);
     }
   }
 </style>
